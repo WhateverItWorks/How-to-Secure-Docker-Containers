@@ -1,0 +1,13 @@
+user: this is set to the UID:GID of 'nobody' or '65534:65534', the least privileged account.
+
+read_only: this is set to true, this container doesn't write anything to the filesystem.
+
+security_opt: there's a lot of settings, but the important on is that the container doesn't get any privileges when asking for them.
+
+cap_drop: this drops ALL capabilities like CHOWN, SETUID, etc.
+
+cap_add: the container does need CHOWN, SETUID, SETGID, so we grant them to the containers.
+
+networks: this puts in its own separate bridge network where it cannot talk to other containers except the ones in the network.
+
+tmpfs: this makes a filesystem in RAM, so when it's restarted, the container volume is wiped.
